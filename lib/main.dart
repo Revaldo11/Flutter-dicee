@@ -7,10 +7,10 @@ void main() {
       home: Scaffold(
         backgroundColor: Colors.purple.shade400,
         appBar: AppBar(
+          backgroundColor: Colors.purple.shade400,
           title: const Center(
             child: Text('Dice App'),
           ),
-          backgroundColor: Colors.purple.shade400,
         ),
         body: const DicePage(),
       ),
@@ -20,19 +20,32 @@ void main() {
 
 class DicePage extends StatelessWidget {
   const DicePage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    var leftDiceNumber = 4;
+
     return SafeArea(
-      child: Row(
-        children: [
-          Expanded(
-            child: Image.asset('images/dice1.png'),
-          ),
-          Expanded(
-            child: Image.asset('images/dice1.png'),
-          ),
-        ],
+      child: Center(
+        child: Row(
+          children: [
+            Expanded(
+              child: TextButton(
+                onPressed: () {
+                  print('Tombol kiri di klik');
+                },
+                child: Image.asset('images/dice$leftDiceNumber.png'),
+              ),
+            ),
+            Expanded(
+              child: TextButton(
+                onPressed: () {
+                  print('Tombol kanan di klik');
+                },
+                child: Image.asset('images/dice1.png'),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
